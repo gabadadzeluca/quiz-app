@@ -1,7 +1,7 @@
 import { useContext } from 'react'
 import { Context } from '../../App';
 import { useNavigate } from 'react-router-dom'
-
+import { categoryOptions, difficultyOptions } from '../../utils/options';
 
 export default function LoginPage(){
   const { username, setUsername } = useContext(Context);
@@ -18,10 +18,34 @@ export default function LoginPage(){
     if(username === null || username === '') return;
     navigate('/game')
   }
+
   return (
     <form>
-      <h3>Enter your name:</h3>
-      <input type='text' placeholder="name:" onChange={handleNameChange}/>
+      <div>
+        <h3>Enter your name:</h3>
+        <input type='text' placeholder="name:" onChange={handleNameChange}/>
+      </div>
+
+      <div>
+        <input type='number' placeholder='Number of questions'/>
+
+        <select>
+          {categoryOptions.map((obj) => (
+            <option key={obj.id} value={obj.name}>
+              {obj.name}
+            </option>
+          ))}
+        </select>
+        
+        <select>
+          {difficultyOptions.map((option)=>(
+            <option value={option}>
+              {option}
+            </option>
+          ))}
+        </select>
+      </div>
+
       <button onClick={handleSubmit}>Start</button>
     </form>
   )
