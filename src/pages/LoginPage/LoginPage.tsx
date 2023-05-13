@@ -2,6 +2,7 @@ import { useContext } from 'react'
 import { Context } from '../../App';
 import { useNavigate } from 'react-router-dom'
 import { categoryOptions, difficultyOptions } from '../../utils/options';
+import { number } from 'prop-types';
 
 export default function LoginPage(){
   const {
@@ -25,6 +26,11 @@ export default function LoginPage(){
     navigate('/game')
   }
 
+  const handleNumberChange = (e: React.ChangeEvent<HTMLInputElement>) =>{
+    let value = e.target.valueAsNumber;
+    setNumber(value);
+  }
+
   return (
     <form>
       <div>
@@ -38,7 +44,7 @@ export default function LoginPage(){
       </div>
 
       <div>
-        <input type='number' placeholder='Number of questions'/>
+        <input type='number' placeholder='Number of questions' onChange={handleNumberChange} />
 
         <select>
           {categoryOptions.map((obj) => (
