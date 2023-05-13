@@ -1,0 +1,9 @@
+*, *::before, *::after{
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html{
+  font-size: 2rem; /* test */
+  /* font-size: 62.5%; */
+}
