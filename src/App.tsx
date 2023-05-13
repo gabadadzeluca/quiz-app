@@ -1,21 +1,23 @@
 import './App.css'
 import Router from './Router'
-import { createContext } from 'react'
+import { createContext, useState} from 'react'
 
 type usernameContextType = {
   username: string|null;
+  setUsername: (username: string|null) => void; 
 }
+export const Context = createContext<usernameContextType>({username:'', setUsername: ()=>{}});
 
-const Context = createContext<usernameContextType>({username: null});
 
 function App() {
-    return (
-      <Context.Provider value={{username: null}}>
+  const [username, setUsername] = useState<string|null>(null);
+  console.log('username: (app.tsx)',username);
+  return (
+    <Context.Provider value={{username, setUsername}}>
       <div>
         <Router />
       </div>
-      </Context.Provider>
-      
+    </Context.Provider>
     )
 }
 
