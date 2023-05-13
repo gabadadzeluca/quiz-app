@@ -2,7 +2,6 @@ import { useContext } from 'react'
 import { Context } from '../../App';
 import { useNavigate } from 'react-router-dom'
 import { categoryOptions, difficultyOptions } from '../../utils/options';
-import { number } from 'prop-types';
 
 export default function LoginPage(){
   const {
@@ -36,6 +35,10 @@ export default function LoginPage(){
     setCategoryId(value);
   }
 
+  const handleDifficultyChange = (e: React.ChangeEvent<HTMLSelectElement>) =>{
+    let difficulty = e.target.value;
+    setDifficulty(difficulty);
+  }
   return (
     <form>
       <div>
@@ -59,7 +62,7 @@ export default function LoginPage(){
           ))}
         </select>
         
-        <select>
+        <select onChange={handleDifficultyChange}>
           {difficultyOptions.map((option)=>(
             <option value={option}>
               {option}
