@@ -13,7 +13,8 @@ export default function LoginPage(){
     setUsername(value);
   }
 
-  const handleSubmit = () =>{
+  const handleSubmit = (e: React.MouseEvent) =>{
+    e.preventDefault();
     if(username === null || username === '') return;
     navigate('/game')
   }
