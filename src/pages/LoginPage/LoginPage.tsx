@@ -4,7 +4,13 @@ import { useNavigate } from 'react-router-dom'
 import { categoryOptions, difficultyOptions } from '../../utils/options';
 
 export default function LoginPage(){
-  const { username, setUsername } = useContext(Context);
+  const {
+    username,
+    setUsername,
+    setCategoryId,
+    setDifficulty,
+    setNumber,
+  } = useContext(Context);
   const navigate = useNavigate();
 
   const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>):void => {
@@ -23,7 +29,12 @@ export default function LoginPage(){
     <form>
       <div>
         <h3>Enter your name:</h3>
-        <input type='text' placeholder="name:" onChange={handleNameChange}/>
+        <input 
+          type='text'
+          placeholder="name:" 
+          onChange={handleNameChange}
+          value={username?? ''}
+        />
       </div>
 
       <div>
