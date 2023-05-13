@@ -31,6 +31,11 @@ export default function LoginPage(){
     setNumber(value);
   }
 
+  const handleCategoryChange = (e: React.ChangeEvent<HTMLSelectElement>) =>{
+    let value = parseInt(e.target.value, 10);
+    setCategoryId(value);
+  }
+
   return (
     <form>
       <div>
@@ -46,9 +51,9 @@ export default function LoginPage(){
       <div>
         <input type='number' placeholder='Number of questions' onChange={handleNumberChange} />
 
-        <select>
+        <select onChange={handleCategoryChange}>
           {categoryOptions.map((obj) => (
-            <option key={obj.id} value={obj.name}>
+            <option key={obj.id} value={obj.id}>
               {obj.name}
             </option>
           ))}
