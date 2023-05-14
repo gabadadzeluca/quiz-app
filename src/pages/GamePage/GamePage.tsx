@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from 'react'
 import { Context } from '../../App'
 import axios from 'axios';
 import { QuestionType } from '../../utils/QuestionType';
+import QuestionComponent from '../../components/questionComponent/QuestionComponent';
 
 export default function GamePage(){
   const { 
@@ -10,6 +11,7 @@ export default function GamePage(){
     categoryId,
     difficulty
   } = useContext(Context);
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState<number>(0);
 
   const API_URL = `https://opentdb.com/api.php?amount=${number}&category=${categoryId}&difficulty=${difficulty}&encode=base64`;
   const[questions, setQuestions] = useState<QuestionType[]|[]>([]);
@@ -22,11 +24,22 @@ export default function GamePage(){
     console.log(response.data);
     setQuestions(response.data?.results);
   } 
+
+  const handleQuestionChange = () => {
+    setCurrentQuestionIndex(currentQuestionIndex + 1);
+  }
+
+  console.log(questions[currentQuestionIndex]);
   return (
     <div>
-      {questions.map((question)=>
-        <p>{atob(question.question)}</p>
-      )}
+      <>
+        {questions.length > 0 ? 
+        <QuestionComponent question={questions[currentQuestionIndex]} />
+          :
+          null
+        }
+      </>
+      <button onClick={handleQuestionChange}>NEXT</button>
     </div>
   )
 }
