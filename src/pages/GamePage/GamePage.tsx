@@ -32,8 +32,8 @@ export default function GamePage() {
         {questions.length > 0 ? (
           <QuestionComponent question={questions[currentQuestionIndex]} />
         ) : null}
+        <button onClick={handleQuestionChange}>NEXT</button>
       </>
-      <button onClick={handleQuestionChange}>NEXT</button>
     </div>
   );
 }
