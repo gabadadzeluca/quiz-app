@@ -19,7 +19,6 @@ type Action =
   | { type: 'SET_DIFFICULTY', payload: string | null }
   | { type: 'SET_NUMBER', payload: number | null };
 
-
 interface AppState {
   username: string|null;
   categoryId: number|null;
@@ -78,7 +77,6 @@ function App() {
     dispatch({ type: 'SET_NUMBER', payload: number});
   }
 
-  console.log("username: ",userData.username)
    
   return (
     <Context.Provider
