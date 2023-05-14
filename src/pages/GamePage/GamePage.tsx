@@ -21,11 +21,12 @@ export default function GamePage(){
   }, []);
   const fetchQuestions =  async () =>{
     const response = await axios.get(API_URL);
-    console.log(response.data);
     setQuestions(response.data?.results);
   } 
 
   const handleQuestionChange = () => {
+    console.log("Q NUMBER: ",currentQuestionIndex+1);
+    if(currentQuestionIndex + 1 === number) return; // last question => add function to end the game
     setCurrentQuestionIndex(currentQuestionIndex + 1);
   }
 
