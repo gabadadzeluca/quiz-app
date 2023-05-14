@@ -98,4 +98,4 @@ export const categoryOptions = [
 ]
 
 
-export const difficultyOptions = ['Easy', 'Medium', 'Hard' ];
+export const difficultyOptions = ['easy', 'medium', 'hard' ];
