@@ -31,7 +31,7 @@ export default function GamePage() {
         {questions.length > 0 ? (
           <QuestionComponent 
             question={questions[currentQuestionIndex]} 
-            setCurrentQuestionIndex={handleQuestionChange}
+            handleQuestionChange={handleQuestionChange}
             currentQuestionIndex={currentQuestionIndex}
           />
         ) : null}
