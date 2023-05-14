@@ -1,13 +1,7 @@
 import { useContext, useEffect, useState } from 'react'
 import { Context } from '../../App'
 import axios from 'axios';
-
-type QuestionType = {
-  category: string;
-  correct_answer: string;
-  incorrect_answers: string[];
-  question: string;
-}
+import { QuestionType } from '../../utils/QuestionType';
 
 export default function GamePage(){
   const { 
@@ -19,7 +13,6 @@ export default function GamePage(){
 
   const API_URL = `https://opentdb.com/api.php?amount=${number}&category=${categoryId}&difficulty=${difficulty}&encode=base64`;
   const[questions, setQuestions] = useState<QuestionType[]|[]>([]);
-  console.log("questions:", questions);
 
   useEffect(()=>{
     fetchQuestions();
