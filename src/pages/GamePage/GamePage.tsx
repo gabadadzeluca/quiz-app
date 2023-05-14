@@ -25,12 +25,15 @@ export default function GamePage() {
     setCurrentQuestionIndex(currentQuestionIndex + 1);
   };
 
-  console.log(questions[currentQuestionIndex]);
   return (
     <div>
       <>
         {questions.length > 0 ? (
-          <QuestionComponent question={questions[currentQuestionIndex]} />
+          <QuestionComponent 
+            question={questions[currentQuestionIndex]} 
+            setCurrentQuestionIndex={setCurrentQuestionIndex}
+            currentQuestionIndex={currentQuestionIndex}
+          />
         ) : null}
         <button onClick={handleQuestionChange}>NEXT</button>
       </>
