@@ -11,7 +11,15 @@ export default function QuestionComponent(props: {
   const { currentQuestionIndex, setCurrentQuestionIndex } = props;
   const answers = [...incorrect_answers, correct_answer];
   const shuffledAnswers = answers.sort(() => Math.random() - 0.5);
-
+  
+  const handleAnswer = (selectedAnswer: string) =>{
+    if(selectedAnswer === correct_answer){
+      setCorrectAnswers(correctAnswers+1);
+      setCurrentQuestionIndex(currentQuestionIndex + 1);
+    }else{ // test
+      console.log("INCORRECT!!!")
+    }
+  }
   return (
     <div>
       <p>{atob(question)}</p>
