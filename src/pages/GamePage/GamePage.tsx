@@ -7,7 +7,7 @@ import QuestionComponent from "../../components/questionComponent/QuestionCompon
 export default function GamePage() {
   const { username, number, categoryId, difficulty } = useContext(Context);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState<number>(0);
-  const [finishGame, setFinishGame] = useState<boolean>(false); 
+  const [finishGame, setFinishGame] = useState<boolean>(false);
   const API_URL = `https://opentdb.com/api.php?amount=${number}&category=${categoryId}&difficulty=${difficulty}&encode=base64`;
   const [questions, setQuestions] = useState<QuestionType[] | []>([]);
 
@@ -15,31 +15,31 @@ export default function GamePage() {
     fetchQuestions();
   }, []);
   const fetchQuestions = async () => {
-    console.log("MAKING REQUEST....")
+    console.log("MAKING REQUEST....");
     const response = await axios.get(API_URL);
     setQuestions(response.data?.results);
   };
 
   const handleQuestionChange = () => {
     console.log("Question N: ", currentQuestionIndex + 1);
-    if (currentQuestionIndex + 1 === number){
+    if (currentQuestionIndex + 1 === number) {
       handleGameEnd();
       return;
-    }; // last question => add function to end the game
+    }
     setCurrentQuestionIndex(currentQuestionIndex + 1);
   };
 
   const handleGameEnd = () => {
     console.log("GAME IS FINISHED!");
     setFinishGame(true);
-  }
+  };
 
   return (
     <div>
       <>
         {questions.length > 0 ? (
-          <QuestionComponent 
-            question={questions[currentQuestionIndex]} 
+          <QuestionComponent
+            question={questions[currentQuestionIndex]}
             handleQuestionChange={handleQuestionChange}
             currentQuestionIndex={currentQuestionIndex}
             finishGame={finishGame}
