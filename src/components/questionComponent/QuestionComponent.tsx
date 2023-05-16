@@ -1,5 +1,6 @@
 import { QuestionType } from "../../utils/QuestionType";
 import { useState } from "react";
+import FinalScreenComponent from "../finalScreenComponent/FinalScreenComponent";
 
 export default function QuestionComponent(props: {
   question:QuestionType;
@@ -24,12 +25,11 @@ export default function QuestionComponent(props: {
 
   if(finishGame){
     return (
-      // ADD A SEPARATE COMPONENT
-      <>
-        <h3>GAME IS FINISHED</h3>
-        <p>score: {correctAnswers}</p>
-      </>
-    )
+      <FinalScreenComponent
+        currentQuestionIndex={currentQuestionIndex}
+        correctAnswers={correctAnswers}
+      />
+    );
   }else{
     return (
       <div>
