@@ -45,7 +45,9 @@ export default function GamePage() {
             finishGame={finishGame}
           />
         ) : null}
-        <button onClick={handleQuestionChange}>NEXT</button>
+        {finishGame ? null : (
+          <button onClick={handleQuestionChange}>NEXT</button>
+        )}
       </>
     </div>
   );
