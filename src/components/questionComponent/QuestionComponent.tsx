@@ -21,14 +21,25 @@ export default function QuestionComponent(props: {
     }
     handleQuestionChange(currentQuestionIndex + 1);
   }
-  return (
-    <div>
-      <p>{atob(question)}</p>
+
+  if(finishGame){
+    return (
+      // ADD A SEPARATE COMPONENT
+      <>
+        <h3>GAME IS FINISHED</h3>
+        <p>score: {correctAnswers}</p>
+      </>
+    )
+  }else{
+    return (
       <div>
-        {shuffledAnswers.map((answer) => 
-          <li onClick={() => handleAnswer(answer)}>{atob(answer)}</li>
-        )}
+        <p>{atob(question)}</p>
+        <div>
+          {shuffledAnswers.map((answer) => 
+            <li onClick={() => handleAnswer(answer)}>{atob(answer)}</li>
+          )}
+        </div>
       </div>
-    </div>
-  )
+    )
+  }
 }
