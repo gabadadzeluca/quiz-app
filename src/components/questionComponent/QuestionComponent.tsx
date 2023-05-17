@@ -17,10 +17,7 @@ export default function QuestionComponent(props: {
   const shuffledAnswers = answers.sort(() => Math.random() - 0.5);
   const handleAnswer = (selectedAnswer: string) =>{
     if(selectedAnswer === correct_answer){
-      console.log("CORRECT!");
       setCorrectAnswers(correctAnswers+1);
-    }else{
-      console.log("INCORRECT!!!")
     }
     handleQuestionChange(currentQuestionIndex + 1);
   }
