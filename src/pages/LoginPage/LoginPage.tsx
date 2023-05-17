@@ -14,7 +14,8 @@ export default function LoginPage(){
   const navigate = useNavigate();
   
   // create a leaderboard object
-  if(!localStorage.getItem('leaderboard')){
+  const leaderboardObj = localStorage.getItem('leaderboard');
+  if(!leaderboardObj || !Array.isArray(JSON.parse(leaderboardObj)) ){
     localStorage.setItem('leaderboard', JSON.stringify([]));
   }
 
