@@ -39,6 +39,7 @@ export default function GamePage() {
       <>
         {questions.length > 0 ? (
           <QuestionComponent
+            username={username || ''}
             question={questions[currentQuestionIndex]}
             handleQuestionChange={handleQuestionChange}
             currentQuestionIndex={currentQuestionIndex}
