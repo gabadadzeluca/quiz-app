@@ -1,8 +1,10 @@
 import { QuestionType } from "../../utils/QuestionType";
 import { useState } from "react";
 import FinalScreenComponent from "../finalScreenComponent/FinalScreenComponent";
+import { ScoreObjectType } from "../../utils/ScoreObjectType";
 
 export default function QuestionComponent(props: {
+  username: string;
   question:QuestionType;
   currentQuestionIndex: number;
   handleQuestionChange: (index: number)=>void;
@@ -10,7 +12,7 @@ export default function QuestionComponent(props: {
 }){
   const [ correctAnswers, setCorrectAnswers ] = useState<number>(0);
   const { question, correct_answer, incorrect_answers, } = props.question;
-  const { currentQuestionIndex, handleQuestionChange, finishGame} = props;
+  const { currentQuestionIndex, handleQuestionChange, finishGame, username} = props;
   const answers = [...incorrect_answers, correct_answer];
   const shuffledAnswers = answers.sort(() => Math.random() - 0.5);
   const handleAnswer = (selectedAnswer: string) =>{
