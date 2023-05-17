@@ -12,6 +12,11 @@ export default function LoginPage(){
     setNumber,
   } = useContext(Context);
   const navigate = useNavigate();
+  
+  // create a leaderboard object
+  if(!localStorage.getItem('leaderboard')){
+    localStorage.setItem('leaderboard', JSON.stringify([]));
+  }
 
   const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>):void => {
     let value = e.target.value;
@@ -39,6 +44,7 @@ export default function LoginPage(){
     let difficulty = e.target.value;
     setDifficulty(difficulty);
   }
+
   return (
     <form>
       <div>
