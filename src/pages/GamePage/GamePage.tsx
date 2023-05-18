@@ -8,16 +8,25 @@ export default function GamePage() {
   const { username, number, categoryId, difficulty } = useContext(Context);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState<number>(0);
   const [finishGame, setFinishGame] = useState<boolean>(false);
-  const API_URL = `https://opentdb.com/api.php?amount=${number}&category=${categoryId}&difficulty=${difficulty? difficulty : 'easy'}&encode=base64`;
+  const API_URL = `https://opentdb.com/api.php?amount=${number}&category=${categoryId}&difficulty=${
+    difficulty ? difficulty : "easy"
+  }&encode=base64`;
   const [questions, setQuestions] = useState<QuestionType[] | []>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
   useEffect(() => {
     fetchQuestions();
   }, []);
   const fetchQuestions = async () => {
-    console.log("MAKING REQUEST....");
-    const response = await axios.get(API_URL);
-    setQuestions(response.data?.results);
+    try {
+      console.log("MAKING REQUEST....");
+      const response = await axios.get(API_URL);
+      setQuestions(response.data?.results);
+      setIsLoading(false);
+    } catch (error) {
+      console.error("Error fetching questions:", error);
+      setIsLoading(false);
+    }
   };
 
   const handleQuestionChange = () => {
@@ -36,20 +45,24 @@ export default function GamePage() {
 
   return (
     <div>
-      <>
-        {questions.length > 0 ? (
-          <QuestionComponent
-            username={username || ''}
-            question={questions[currentQuestionIndex]}
-            handleQuestionChange={handleQuestionChange}
-            currentQuestionIndex={currentQuestionIndex}
-            finishGame={finishGame}
-          />
-        ) : null}
-        {finishGame ? null : (
-          <button onClick={handleQuestionChange}>NEXT</button>
-        )}
-      </>
+      {isLoading ? (
+        <div>Loading...</div>
+      ) : (
+        <>
+          {questions.length > 0 ? (
+            <QuestionComponent
+              username={username || ""}
+              question={questions[currentQuestionIndex]}
+              handleQuestionChange={handleQuestionChange}
+              currentQuestionIndex={currentQuestionIndex}
+              finishGame={finishGame}
+            />
+          ) : null}
+          {finishGame ? null : (
+            <button onClick={handleQuestionChange}>NEXT</button>
+          )}
+        </>
+      )}
     </div>
   );
 }
