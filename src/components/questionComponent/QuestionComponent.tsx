@@ -24,17 +24,25 @@ export default function QuestionComponent(props: {
 
   const updateLeaderboard = () =>{
     const storedLeaderboardItem = localStorage.getItem('leaderboard');
-    const leaderboardArray: ScoreObjectType[]|[] = storedLeaderboardItem ? JSON.parse(storedLeaderboardItem) : [];
+    let leaderboardArray: ScoreObjectType[]|[] = storedLeaderboardItem ? JSON.parse(storedLeaderboardItem) : [];
     const newRecordObj : ScoreObjectType = {
       username: username,
       score: correctAnswers
     }
-    if(leaderboardArray.find(obj=>(obj.username == username) && obj.score >= correctAnswers)) {
-      return;
+    const existingRecordIndex = leaderboardArray.findIndex(obj => obj.username === username);
+
+    if (existingRecordIndex !== -1) {
+       // check if user already has a rating in the leaderboard
+      if (leaderboardArray[existingRecordIndex].score >= correctAnswers) {
+        // if the existing score is higher or equal to the current score, return without saving
+        return;
+      } else {
+        leaderboardArray[existingRecordIndex] = newRecordObj;
+      }
+    } else {
+      leaderboardArray = [...leaderboardArray, newRecordObj];
     }
-    const updatedLeaderboardArray : ScoreObjectType[] = [...leaderboardArray, newRecordObj];
-    localStorage.setItem('leaderboard', JSON.stringify(updatedLeaderboardArray));
-    console.log("LEADERBOARD:", leaderboardArray);
+    localStorage.setItem('leaderboard', JSON.stringify(leaderboardArray));
   }
   if(finishGame) updateLeaderboard();
 
