@@ -8,7 +8,7 @@ export default function GamePage() {
   const { username, number, categoryId, difficulty } = useContext(Context);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState<number>(0);
   const [finishGame, setFinishGame] = useState<boolean>(false);
-  const API_URL = `https://opentdb.com/api.php?amount=${number}&category=${categoryId}&difficulty=${
+  const API_URL = `https://opentdb.com/api.php?amount=${number? number : 5}&category=${categoryId}&difficulty=${
     difficulty ? difficulty : "easy"
   }&encode=base64`;
   const [questions, setQuestions] = useState<QuestionType[] | []>([]);
