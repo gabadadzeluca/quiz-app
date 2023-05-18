@@ -31,6 +31,11 @@ export default function LoginPage(){
     navigate('/game')
   }
 
+  const handleNumberChange = (e: React.ChangeEvent<HTMLSelectElement>) =>{
+    let number = parseInt(e.target.value, 10);
+    setNumber(number);
+  }
+
   const handleCategoryChange = (e: React.ChangeEvent<HTMLSelectElement>) =>{
     let value = parseInt(e.target.value, 10);
     setCategoryId(value);
@@ -54,11 +59,12 @@ export default function LoginPage(){
       </div>
 
       <div>
-        <select onChange={()=>{}}>
+        <select onChange={handleNumberChange}>
           {numberOptions.map((number)=>(
             <option value={number} key={number}>{number}</option>
           ))}
         </select>
+
         <select onChange={handleCategoryChange}>
           {categoryOptions.map((obj) => (
             <option key={obj.id} value={obj.id}>
