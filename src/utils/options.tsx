@@ -97,5 +97,5 @@ export const categoryOptions = [
   }
 ]
 
-
+export const numberOptions = [5, 10 ,15];
 export const difficultyOptions = ['easy', 'medium', 'hard' ];
