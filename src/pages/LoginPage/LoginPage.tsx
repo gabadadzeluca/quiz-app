@@ -25,23 +25,23 @@ export default function LoginPage(){
     setUsername(value);
   }
 
-  const handleSubmit = (e: React.MouseEvent) =>{
+  const handleSubmit = (e: React.MouseEvent):void =>{
     e.preventDefault();
     if(username === null || username === '') return;
     navigate('/game')
   }
 
-  const handleNumberChange = (e: React.ChangeEvent<HTMLSelectElement>) =>{
+  const handleNumberChange = (e: React.ChangeEvent<HTMLSelectElement>):void =>{
     let number = parseInt(e.target.value, 10);
     setNumber(number);
   }
 
-  const handleCategoryChange = (e: React.ChangeEvent<HTMLSelectElement>) =>{
+  const handleCategoryChange = (e: React.ChangeEvent<HTMLSelectElement>):void =>{
     let value = parseInt(e.target.value, 10);
     setCategoryId(value);
   }
 
-  const handleDifficultyChange = (e: React.ChangeEvent<HTMLSelectElement>) =>{
+  const handleDifficultyChange = (e: React.ChangeEvent<HTMLSelectElement>):void =>{
     let difficulty = e.target.value;
     setDifficulty(difficulty);
   }
