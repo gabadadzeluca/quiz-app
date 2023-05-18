@@ -50,17 +50,19 @@ export default function GamePage() {
       ) : (
         <>
           {questions.length > 0 ? (
-            <QuestionComponent
-              username={username || ""}
-              question={questions[currentQuestionIndex]}
-              handleQuestionChange={handleQuestionChange}
-              currentQuestionIndex={currentQuestionIndex}
-              finishGame={finishGame}
-            />
+            <>
+              <QuestionComponent
+                username={username || ""}
+                question={questions[currentQuestionIndex]}
+                handleQuestionChange={handleQuestionChange}
+                currentQuestionIndex={currentQuestionIndex}
+                finishGame={finishGame}
+              />
+              {finishGame ? null : (
+                <button onClick={handleQuestionChange}>NEXT</button>
+              )}
+            </>
           ) : null}
-          {finishGame ? null : (
-            <button onClick={handleQuestionChange}>NEXT</button>
-          )}
         </>
       )}
     </div>
