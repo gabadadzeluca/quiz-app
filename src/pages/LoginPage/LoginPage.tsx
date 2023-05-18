@@ -1,7 +1,7 @@
 import { useContext } from 'react'
 import { Context } from '../../App';
 import { useNavigate } from 'react-router-dom'
-import { categoryOptions, difficultyOptions } from '../../utils/options';
+import { categoryOptions, difficultyOptions, numberOptions} from '../../utils/options';
 
 export default function LoginPage(){
   const {
@@ -31,11 +31,6 @@ export default function LoginPage(){
     navigate('/game')
   }
 
-  const handleNumberChange = (e: React.ChangeEvent<HTMLInputElement>) =>{
-    let value = e.target.valueAsNumber;
-    setNumber(value);
-  }
-
   const handleCategoryChange = (e: React.ChangeEvent<HTMLSelectElement>) =>{
     let value = parseInt(e.target.value, 10);
     setCategoryId(value);
@@ -59,8 +54,11 @@ export default function LoginPage(){
       </div>
 
       <div>
-        <input type='number' placeholder='Number of questions' onChange={handleNumberChange} />
-
+        <select onChange={()=>{}}>
+          {numberOptions.map((number)=>(
+            <option value={number} key={number}>{number}</option>
+          ))}
+        </select>
         <select onChange={handleCategoryChange}>
           {categoryOptions.map((obj) => (
             <option key={obj.id} value={obj.id}>
