@@ -92,7 +92,7 @@ function App() {
         setUsername
       }
     }>
-      <div>
+      <div className='App'>
         <Router />
       </div>
     </Context.Provider>
