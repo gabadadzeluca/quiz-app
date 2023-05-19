@@ -8,7 +8,7 @@ import {
 } from "../../utils/options";
 
 export default function LoginPage() {
-  const { username, setUsername, setCategoryId, setDifficulty, setNumber } =
+  const { username, number, setUsername, setCategoryId, setDifficulty, setNumber } =
     useContext(Context);
   const navigate = useNavigate();
 
@@ -27,6 +27,7 @@ export default function LoginPage() {
   const handleSubmit = (e: React.MouseEvent): void => {
     e.preventDefault();
     if (username === null || username === "") return;
+    if(!number) setNumber(5);
     navigate("/game");
   };
 
