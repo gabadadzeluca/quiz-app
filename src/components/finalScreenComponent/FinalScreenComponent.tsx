@@ -9,7 +9,12 @@ export default function FinalScreenComponent(props:{
     <>
       <h3>GAME IS FINISHED</h3>
       <p>score: {correctAnswers}/{currentQuestionIndex + 1}</p>
-      <Link to={'/leaderboard'}>Leaderboard</Link>
+      <button>
+        <Link to={'/leaderboard'}>Leaderboard</Link>
+      </button>
+      <button>
+        <Link to={'/'}>Play Again</Link>
+      </button>
     </>
   )
 }
