@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function FinalScreenComponent(props:{
   correctAnswers: number;
   currentQuestionIndex: number;
@@ -7,6 +9,7 @@ export default function FinalScreenComponent(props:{
     <>
       <h3>GAME IS FINISHED</h3>
       <p>score: {correctAnswers}/{currentQuestionIndex + 1}</p>
+      <Link to={'/leaderboard'}>Leaderboard</Link>
     </>
   )
 }
