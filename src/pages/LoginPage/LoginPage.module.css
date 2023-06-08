@@ -1,0 +1,32 @@
+.loginPageContainer{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.form{
+  display: flex;
+  width: 50%;
+  max-width: 60rem;
+  min-width: 20rem;
+  flex-direction: column;
+  text-align: center;
+}
+.selectDiv{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2rem;
+}
+.selectDiv>select{
+  font-size: 1.5rem;
+  text-transform: capitalize;
+  cursor: pointer;
+}
+.selectDiv>label{
+  font-size: 1.5rem;
+  color: white;
+  margin-bottom: 0.5rem;
+}
