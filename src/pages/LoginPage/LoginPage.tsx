@@ -1,6 +1,8 @@
 import { useContext, useState } from "react";
 import { Context } from "../../App";
 import { useNavigate } from "react-router-dom";
+import styles from './LoginPage.module.css';
+
 import {
   categoryOptions,
   difficultyOptions,
@@ -54,10 +56,10 @@ export default function LoginPage() {
   };
 
   return (
-    <div>
-      <form>
+    <div className={styles.loginPageContainer}>
+      <form className={styles.form}>
         <div>
-          <div>
+          <div className={styles.selectDiv}>
             <label>Name:</label>
             <input
               type="text"
@@ -67,7 +69,7 @@ export default function LoginPage() {
             />
           </div>
 
-          <div>
+          <div className={styles.selectDiv}>
             <label>Number of questions:</label>
             <select onChange={handleNumberChange}>
               {numberOptions.map((number) => (
@@ -78,7 +80,7 @@ export default function LoginPage() {
             </select>
           </div>
 
-          <div>
+          <div className={styles.selectDiv}>
             <label>Category:</label>
             <select onChange={handleCategoryChange}>
               {categoryOptions.map((obj) => (
@@ -88,7 +90,8 @@ export default function LoginPage() {
               ))}
             </select>
           </div>
-          <div>
+          
+          <div className={styles.selectDiv}>
             <label>Difficulty:</label>
             <select onChange={handleDifficultyChange}>
               {difficultyOptions.map((option) => (
