@@ -11,7 +11,7 @@ export default function LeaderboardPage() {
       <ul>
         {leaderboardArray.map((object, index) => (
           <li key={index}>
-            {object.username}:{object.score}
+            {object.username} : {object.score}
           </li>
         ))}
       </ul>
