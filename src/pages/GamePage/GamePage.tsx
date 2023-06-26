@@ -3,6 +3,7 @@ import { Context } from "../../App";
 import axios from "axios";
 import { QuestionType } from "../../utils/QuestionType";
 import QuestionComponent from "../../components/questionComponent/QuestionComponent";
+import styles from "./GamePage.module.css";
 
 export default function GamePage() {
   const { username, number, categoryId, difficulty } = useContext(Context);
@@ -31,7 +32,6 @@ export default function GamePage() {
 
   const handleQuestionChange = () => {
     if (currentQuestionIndex + 1 === questions.length) {
-      console.log("GAME IS FINISHED!");
       handleGameEnd();
       return;
     }
@@ -43,7 +43,7 @@ export default function GamePage() {
   };
 
   return (
-    <div>
+    <div className={styles.gameContainer}>
       {isLoading ? (
         <div>Loading...</div>
       ) : (
@@ -58,7 +58,7 @@ export default function GamePage() {
                 finishGame={finishGame}
               />
               {finishGame ? null : (
-                <button onClick={handleQuestionChange}>NEXT</button>
+                <button onClick={handleQuestionChange} className={styles.nextBtn}>NEXT</button>
               )}
             </>
           )}

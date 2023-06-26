@@ -100,12 +100,11 @@ export default function LoginPage() {
             </select>
           </div>
         </div>
-
-        <button onClick={handleSubmit}>Start</button>
+        <button onClick={handleSubmit} className={styles.startBtn}>Start</button>
       </form>
 
-      <div>
-        <button onClick={()=>setIsOpen(!isOpen)}>LEADERBOARD</button>
+      <div className={styles.leaderboardDiv}>
+        <button onClick={()=>setIsOpen(!isOpen)} className={styles.leaderboardBtn}>LEADERBOARD</button>
         {isOpen && (
           <LeaderboardPage />
         )}

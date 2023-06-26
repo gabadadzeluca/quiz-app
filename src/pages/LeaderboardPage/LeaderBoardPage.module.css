@@ -1,0 +1,13 @@
+.leaderboardContainer{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.leaderboardContainer>ul{
+  list-style-type: decimal;
+  font-size: 1.5rem;
+}
+.leaderboardContainer li{
+  margin: 1rem 0;
+}

@@ -2,6 +2,7 @@ import { QuestionType } from "../../utils/QuestionType";
 import { useState } from "react";
 import FinalScreenComponent from "../finalScreenComponent/FinalScreenComponent";
 import { ScoreObjectType } from "../../utils/ScoreObjectType";
+import styles from "./QuestionComponent.module.css";
 
 export default function QuestionComponent(props: {
   username: string;
@@ -60,11 +61,11 @@ export default function QuestionComponent(props: {
     );
   } else {
     return (
-      <div>
+      <div className={styles.questionDiv}>
         <p>{atob(question)}</p>
         <div>
           {shuffledAnswers.map((answer, index) => (
-            <li onClick={() => handleAnswer(answer)} key={index}>
+            <li onClick={() => handleAnswer(answer)} key={index} className={styles.answer}>
               {atob(answer)}
             </li>
           ))}

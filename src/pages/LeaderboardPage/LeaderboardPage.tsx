@@ -1,4 +1,5 @@
 import { ScoreObjectType } from "../../utils/ScoreObjectType";
+import styles from "./LeaderBoardPage.module.css";
 
 export default function LeaderboardPage() {
   const leaderboardObj = localStorage.getItem("leaderboard");
@@ -6,7 +7,7 @@ export default function LeaderboardPage() {
     ? JSON.parse(leaderboardObj)
     : [];
   return (
-    <div>
+    <div className={styles.leaderboardContainer}>
       <ul>
         {leaderboardArray.map((object, index) => (
           <li key={index}>

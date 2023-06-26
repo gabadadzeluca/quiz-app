@@ -1,0 +1,23 @@
+.finalScreenContainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 50%;
+  height: 40%;
+}
+.buttonDiv{
+  width: 100%;
+  display: inline-flex;
+  justify-content: space-between;
+}
+.buttonDiv>button{
+  all: unset;
+  border-radius: .5rem;
+  padding: 1rem 2rem;
+  background-color: blue;
+}
+.link{
+  text-decoration: none;
+  color: #ffffff;
+}

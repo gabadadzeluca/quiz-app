@@ -1,4 +1,5 @@
 .loginPageContainer{
+  width: 80%;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -8,11 +9,16 @@
 
 .form{
   display: flex;
-  width: 50%;
+  width: 80%;
   max-width: 60rem;
   min-width: 20rem;
   flex-direction: column;
   text-align: center;
+}
+
+.form input, select{
+  min-height: 4rem;
+  font-size: 2rem;
 }
 .selectDiv{
   width: 100%;
@@ -21,12 +27,32 @@
   margin-bottom: 2rem;
 }
 .selectDiv>select{
-  font-size: 1.5rem;
   text-transform: capitalize;
   cursor: pointer;
 }
 .selectDiv>label{
-  font-size: 1.5rem;
+  font-size: 2rem;
   color: white;
   margin-bottom: 0.5rem;
+}
+
+.leaderboardBtn, .startBtn{
+  all: unset;
+  background-color: blue;
+  padding: 1rem 2rem;
+  margin-top: 2rem;
+  border-radius: .5rem;
+  cursor: pointer;
+}
+
+.startBtn{
+  background-color: blue;
+}
+.startBtn:hover{
+  background-color: rgba(60, 232, 66, 0.984);
+}
+.leaderboardDiv{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
