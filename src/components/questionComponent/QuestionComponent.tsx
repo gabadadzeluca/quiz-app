@@ -63,8 +63,10 @@ export default function QuestionComponent(props: {
       <div>
         <p>{atob(question)}</p>
         <div>
-          {shuffledAnswers.map((answer) => (
-            <li onClick={() => handleAnswer(answer)}>{atob(answer)}</li>
+          {shuffledAnswers.map((answer, index) => (
+            <li onClick={() => handleAnswer(answer)} key={index}>
+              {atob(answer)}
+            </li>
           ))}
         </div>
       </div>
