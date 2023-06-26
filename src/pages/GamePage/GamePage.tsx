@@ -30,8 +30,8 @@ export default function GamePage() {
   };
 
   const handleQuestionChange = () => {
-    console.log("Question N: ", currentQuestionIndex + 1);
-    if (currentQuestionIndex + 1 === number) {
+    if (currentQuestionIndex + 1 === questions.length) {
+      console.log("GAME IS FINISHED!");
       handleGameEnd();
       return;
     }
@@ -39,7 +39,6 @@ export default function GamePage() {
   };
 
   const handleGameEnd = () => {
-    console.log("GAME IS FINISHED!");
     setFinishGame(true);
   };
 
@@ -49,7 +48,7 @@ export default function GamePage() {
         <div>Loading...</div>
       ) : (
         <>
-          {questions.length > 0 ? (
+          {questions.length > 0 && (
             <>
               <QuestionComponent
                 username={username || ""}
@@ -62,7 +61,7 @@ export default function GamePage() {
                 <button onClick={handleQuestionChange}>NEXT</button>
               )}
             </>
-          ) : null}
+          )}
         </>
       )}
     </div>
