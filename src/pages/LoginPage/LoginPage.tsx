@@ -94,8 +94,8 @@ export default function LoginPage() {
           <div className={styles.selectDiv}>
             <label>Difficulty:</label>
             <select onChange={handleDifficultyChange}>
-              {difficultyOptions.map((option) => (
-                <option value={option}>{option}</option>
+              {difficultyOptions.map((option, index) => (
+                <option value={option} key={index}>{option}</option>
               ))}
             </select>
           </div>
