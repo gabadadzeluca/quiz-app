@@ -7,6 +7,7 @@ export default function Router(){
   return (
   <Routes>
     <Route path="/" element={<LoginPage />} />
+    <Route path="/#/" element={<LoginPage />} />
     <Route path="/game" element={<GamePage />} />
     <Route path="/leaderboard" element={<LeaderboardPage />} />
   </Routes>
