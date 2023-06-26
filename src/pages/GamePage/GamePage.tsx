@@ -20,7 +20,6 @@ export default function GamePage() {
   }, []);
   const fetchQuestions = async () => {
     try {
-      console.log("MAKING REQUEST....");
       const response = await axios.get(API_URL);
       setQuestions(response.data?.results);
       setIsLoading(false);
