@@ -8,8 +8,8 @@ export default function LeaderboardPage() {
   return (
     <div>
       <ul>
-        {leaderboardArray.map((object) => (
-          <li>
+        {leaderboardArray.map((object, index) => (
+          <li key={index}>
             {object.username}:{object.score}
           </li>
         ))}
