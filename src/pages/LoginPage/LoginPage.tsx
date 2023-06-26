@@ -63,7 +63,7 @@ export default function LoginPage() {
             <label>Name:</label>
             <input
               type="text"
-              placeholder="name:"
+              placeholder="name"
               onChange={handleNameChange}
               value={username ?? ""}
             />
